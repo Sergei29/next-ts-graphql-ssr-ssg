@@ -1,5 +1,7 @@
 import React from "react";
+import { useReactiveVar } from "@apollo/client";
 
+import { spaceShipPassengersVar } from "@/graphql/client";
 import { Character } from "@/types";
 
 type Props = {
@@ -7,8 +9,16 @@ type Props = {
 };
 
 const CharacterCard = ({ character }: Props): JSX.Element => {
+  const passengerIds = useReactiveVar(spaceShipPassengersVar);
+
   const handleAddTo = () => {
-    console.log("ad to shapceship");
+    if (character.isSpaceshipPassenger) {
+      spaceShipPassengersVar(
+        passengerIds.filter((current) => current !== character.id)
+      );
+    } else {
+      spaceShipPassengersVar([...passengerIds, character.id]);
+    }
   };
 
   return (
@@ -23,7 +33,7 @@ const CharacterCard = ({ character }: Props): JSX.Element => {
         className="mt-auto hover:border-2 hover:border-solid hover:border-indigo-500 hover:bg-yellow-200 rounded-md transition-all duration-150 ease-in-out"
         onClick={handleAddTo}
       >
-        Add to
+        {character.isSpaceshipPassenger ? "Remove from" : "Add to"}
       </button>
     </div>
   );

@@ -8,7 +8,7 @@ export const GET_CHARACTERS = gql`
         name
         image
         species
-        # isSpaceshipPassenger @client
+        isSpaceshipPassenger @client
       }
     }
   }
@@ -20,7 +20,7 @@ export const GET_PASSENGERS = gql`
       results {
         id
         image
-        # isSpaceshipPassenger @client
+        isSpaceshipPassenger @client
       }
     }
   }

@@ -1,10 +1,15 @@
 export type Character = {
   id: string;
-} & Record<string, any>;
+  name: string;
+  image: string;
+  species: string;
+  isSpaceshipPassenger?: boolean;
+};
 
-export type Passenger = {
-  id: string;
-} & Record<string, any>;
+export type Passenger = Pick<
+  Character,
+  "id" | "image" | "isSpaceshipPassenger"
+>;
 
 export type PageList<T> = {
   info: {

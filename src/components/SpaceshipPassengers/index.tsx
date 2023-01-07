@@ -8,8 +8,8 @@ type Props = {};
 
 export const ShipContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="px-4 py-5 rounded-md mb-4">
-      <h2 style={{ fontFamily: "Helvetica" }}>Spaceship passengers</h2>
+    <div className="px-4 py-5 rounded-md mb-4 min-h-[200px]">
+      <h2 className="mb-4">Spaceship passengers 🚀</h2>
       {children}
     </div>
   );
@@ -37,7 +37,11 @@ const SpaceshipPassengers = ({}: Props): JSX.Element => {
   );
 
   if (!passengers.length) {
-    return <p>No passengers. Add someone to your spaceship.</p>;
+    return (
+      <p className="text-center py-6">
+        No passengers. Add someone to your spaceship.
+      </p>
+    );
   }
 
   return (
@@ -53,7 +57,7 @@ const SpaceshipPassengers = ({}: Props): JSX.Element => {
         <img
           key={passenger.id}
           src={passenger.image}
-          alt={passenger.name}
+          alt="rick&morty"
           style={{
             width: "100%",
             borderRadius: "50%",
