@@ -1,11 +1,26 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
+import {
+  initialiseApolloClient,
+  addApolloState,
+  GET_CHARACTERS,
+} from "@/graphql/client";
 import CharacterGrid from "@/components/CharacterGrid";
 import SpaceshipPassengers, {
   ShipContainer,
 } from "@/components/SpaceshipPassengers";
 
-export default function Home() {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const apolloCLient = initialiseApolloClient();
+  await apolloCLient.query({ query: GET_CHARACTERS });
+
+  return addApolloState(apolloCLient, {
+    props: {},
+  });
+};
+
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -22,4 +37,6 @@ export default function Home() {
       </>
     </>
   );
-}
+};
+
+export default HomePage;
