@@ -14,7 +14,7 @@ const Layout = ({ children }: Props): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header></header>
-      <main className="px-4 py-2">{children}</main>
+      <main className="px-4 py-5">{children}</main>
       <footer></footer>
     </>
   );
