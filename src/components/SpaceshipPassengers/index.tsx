@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import { GET_PASSENGERS } from "@/graphql/client";
+import { GET_PASSENGERS, spaceShipPassengersVar } from "@/graphql/client";
 import { Passenger, PageList } from "@/types";
 
 type Props = {};
@@ -19,6 +19,13 @@ const SpaceshipPassengers = ({}: Props): JSX.Element => {
   const { data, loading, error } = useQuery<{
     characters: PageList<Passenger>;
   }>(GET_PASSENGERS);
+
+  const handleRemovepassenger = (passengerId: string) => {
+    const currentPassengers = spaceShipPassengersVar();
+    spaceShipPassengersVar(
+      currentPassengers.filter((currentId) => currentId !== passengerId)
+    );
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -53,17 +60,20 @@ const SpaceshipPassengers = ({}: Props): JSX.Element => {
       }}
     >
       {passengers.map((passenger) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={passenger.id}
-          src={passenger.image}
-          alt="rick&morty"
-          style={{
-            width: "100%",
-            borderRadius: "50%",
-            border: "5px solid #318bbe",
-          }}
-        />
+        <div key={passenger.id} className="relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={passenger.image}
+            alt="rick&morty"
+            className="border-4 border-solid border-green-400 rounded-full w-full"
+          />
+          <button
+            className="w-[35px] p-1 h-[35px] border-[1px] border-solid border-red-600 bg-yellow-300 text-red-600  rounded-full flex justify-center items-center absolute bottom-[-5px] left-[-3px]"
+            onClick={() => handleRemovepassenger(passenger.id)}
+          >
+            ❌
+          </button>
+        </div>
       ))}
     </div>
   );
