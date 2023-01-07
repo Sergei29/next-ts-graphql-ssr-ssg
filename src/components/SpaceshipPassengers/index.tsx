@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { useQuery } from "@apollo/client";
 
 import { GET_PASSENGERS, spaceShipPassengersVar } from "@/graphql/client";
@@ -61,9 +62,10 @@ const SpaceshipPassengers = ({}: Props): JSX.Element => {
     >
       {passengers.map((passenger) => (
         <div key={passenger.id} className="relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={passenger.image}
+            width={300}
+            height={300}
             alt="rick&morty"
             className="border-4 border-solid border-green-400 rounded-full w-full"
           />

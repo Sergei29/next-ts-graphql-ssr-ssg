@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { useReactiveVar } from "@apollo/client";
 
 import { spaceShipPassengersVar } from "@/graphql/client";
@@ -23,8 +24,13 @@ const CharacterCard = ({ character }: Props): JSX.Element => {
 
   return (
     <div className="flex flex-col p-2 border-2 border-solid border-indigo-500 rounded-md">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={character.image} alt={character.name} className="w-full" />
+      <Image
+        src={character.image}
+        width={300}
+        height={300}
+        alt={character.name}
+        className="w-full"
+      />
       <div>
         <h2>{character.name}</h2>
         <h3>{character.species}</h3>
