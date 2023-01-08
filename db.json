@@ -1,6 +1,26 @@
 {
   "books": [
-    { "id": "1", "author": "Kate Chopin", "title": "The Awakening" },
-    { "id": "2", "author": "Paul Auster", "title": "City of Glass" }
+    {
+      "id": "1",
+      "author": "Rober Jordan",
+      "image": {
+        "id": "223",
+        "url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659905815i/228665.jpg",
+        "width": 535,
+        "height": 859
+      },
+      "title": "The Eye of the World"
+    },
+    {
+      "id": "2",
+      "author": "Brandon Sanderson",
+      "image": {
+        "id": "224",
+        "url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1617768316i/68428.jpg",
+        "width": 566,
+        "height": 859
+      },
+      "title": "The Final Empire"
+    }
   ]
 }
