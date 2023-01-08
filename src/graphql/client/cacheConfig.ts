@@ -1,16 +1,16 @@
 import { InMemoryCacheConfig } from "@apollo/client";
 
-import { spaceShipPassengersVar } from "./reactiveVars";
+import { selectedBooksVar } from "./reactiveVars";
 
 export const cacheConfig: InMemoryCacheConfig = {
   typePolicies: {
-    Character: {
+    Book: {
       fields: {
-        isSpaceshipPassenger: {
+        isSelected: {
           read: (_, { variables, readField }) => {
-            const caracterId = readField("id") as string;
+            const bookId = readField("id") as string;
 
-            return spaceShipPassengersVar().includes(caracterId);
+            return selectedBooksVar().includes(bookId);
           },
         },
       },

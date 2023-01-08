@@ -1,27 +1,22 @@
 import { gql } from "@apollo/client";
 
-export const GET_CHARACTERS = gql`
-  query GetCharacters {
-    characters {
-      results {
-        id
-        name
-        image
-        species
-        isSpaceshipPassenger @client
-      }
+export const GET_BOOKS = gql`
+  query GetBooks {
+    books {
+      id
+      title
+      author
+      isSelected @client
     }
   }
 `;
 
-export const GET_PASSENGERS = gql`
+export const GET_SELECTED_BOOKS = gql`
   query GetPassengers {
-    characters {
-      results {
-        id
-        image
-        isSpaceshipPassenger @client
-      }
+    books {
+      id
+      title
+      isSelected @client
     }
   }
 `;

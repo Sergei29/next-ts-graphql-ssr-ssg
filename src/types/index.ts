@@ -1,22 +1,8 @@
-export type Character = {
+export type Book = {
   id: string;
-  name: string;
-  image: string;
-  species: string;
-  isSpaceshipPassenger?: boolean;
+  title: string;
+  author: string;
+  isSelected?: boolean;
 };
 
-export type Passenger = Pick<
-  Character,
-  "id" | "image" | "isSpaceshipPassenger"
->;
-
-export type PageList<T> = {
-  info: {
-    count: number;
-    pages: number;
-    next: number | null;
-    prev: number | null;
-  };
-  results: T[];
-};
+export type SelectedBook = Pick<Book, "id" | "title" | "isSelected">;

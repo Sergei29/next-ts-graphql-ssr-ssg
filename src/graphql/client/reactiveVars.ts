@@ -1,3 +1,3 @@
 import { makeVar } from "@apollo/client";
 
-export const spaceShipPassengersVar = makeVar<string[]>([]);
+export const selectedBooksVar = makeVar<string[]>([]);

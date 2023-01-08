@@ -8,7 +8,7 @@ import { useMemo } from "react";
 import merge from "deepmerge";
 import isEqual from "lodash/isEqual";
 
-import { NEXT_PUBLIC_RICK_AND_MORTY_API } from "@/constants";
+import { NEXT_PUBLIC_GRAPHQL_API } from "@/constants";
 import { cacheConfig } from "./cacheConfig";
 
 /**
@@ -28,7 +28,7 @@ export const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: isServer(),
     link: new HttpLink({
-      uri: NEXT_PUBLIC_RICK_AND_MORTY_API,
+      uri: NEXT_PUBLIC_GRAPHQL_API,
     }),
     cache: new InMemoryCache(cacheConfig),
   });
