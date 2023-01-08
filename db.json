@@ -1,0 +1,6 @@
+{
+  "books": [
+    { "id": "1", "author": "Kate Chopin", "title": "The Awakening" },
+    { "id": "2", "author": "Paul Auster", "title": "City of Glass" }
+  ]
+}
