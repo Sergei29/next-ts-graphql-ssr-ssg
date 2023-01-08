@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { JsonDB } from "node-json-db";
 
+import dataProvider from "@/db/dataProvider";
+
 export type Book = {
   id: string;
   title: string;
@@ -15,5 +17,5 @@ export type NewBookInput = Pick<Book, "title" | "author">;
 export type ServerContextType = {
   req: NextApiRequest;
   res: NextApiResponse;
-  db: JsonDB;
+  db: ReturnType<typeof dataProvider>;
 };
